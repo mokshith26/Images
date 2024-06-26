@@ -50,8 +50,7 @@ fun ImagesListScreen(
 
     var tags by remember { mutableStateOf("") }
     Column {
-        TextField(
-            value = tags,
+        TextField(value = tags,
             onValueChange = { tags = it },
             label = { Text("Enter tags") },
             modifier = Modifier
@@ -60,8 +59,7 @@ fun ImagesListScreen(
                 .semantics {
                     // Provide accessibility properties for the TextField
                     contentDescription = "Search tags"
-                }
-        )
+                })
         Button(
             //I have not restricted min count for search because we are getting response if don't pass any response
             onClick = {
@@ -73,8 +71,7 @@ fun ImagesListScreen(
                 .semantics {
                     // Provide accessibility properties for the Button
                     contentDescription = "Search button"
-                }
-        ) {
+                }) {
             Text("Search")
         }
 
@@ -96,8 +93,7 @@ fun ImagesListScreen(
                 val photo = photos.imagesList[index]
                 AnimatedVisibility(
                     visible = true, // Adjust visibility logic based on your requirements
-                    enter = fadeIn(animationSpec = tween(400)),
-                    modifier = Modifier.fillMaxWidth()
+                    enter = fadeIn(animationSpec = tween(400)), modifier = Modifier.fillMaxWidth()
                 ) {
                     NetworkImage(photo) {
                         navigateToImageDetails(navController, photo)
@@ -115,8 +111,7 @@ fun navigateToImageDetails(navController: NavHostController, photo: Item) {
     val encodedPublishedDate = Uri.encode(photo.published)
     val encodedImageUrl = Uri.encode(photo.media.m)
     navController.navigate(
-        Screen.ImageDetailsScreen.route +
-                "/$encodedTitle/$encodedDescription/$encodedAuthor/$encodedPublishedDate/$encodedImageUrl"
+        Screen.ImageDetailsScreen.route + "/$encodedTitle/$encodedDescription/$encodedAuthor/$encodedPublishedDate/$encodedImageUrl"
     )
 }
 

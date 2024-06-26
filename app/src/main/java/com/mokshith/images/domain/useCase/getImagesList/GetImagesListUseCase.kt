@@ -18,7 +18,7 @@ class GetImagesListUseCase @Inject constructor(
             val response = repository.getImagesListByName(str)
             if (response.isSuccessful) {
                 emit(ApiState.Success(response.body()!!))
-            }else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
+            } else if (response.code() == HttpURLConnection.HTTP_NOT_FOUND) {
                 // Handle 404 Not Found specifically
                 emit(ApiState.Error("Menu list not found. (404)"))
             } else {
@@ -27,7 +27,7 @@ class GetImagesListUseCase @Inject constructor(
             }
         } catch (e: Exception) {
             emit(ApiState.Error("Exception $e Couldn't reach servers. Check your internet connection"))
-        } catch (e: TimeoutException){
+        } catch (e: TimeoutException) {
             emit(ApiState.Error("Timeout Exception : $e"))
         }
     }

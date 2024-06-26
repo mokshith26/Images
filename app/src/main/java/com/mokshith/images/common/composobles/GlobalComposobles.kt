@@ -38,9 +38,7 @@ fun ErrorScreen(error: String?, modifier: Modifier = Modifier) {
 @Composable
 fun LoadingScreen() {
     Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxSize()
+        contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()
     ) {
         CircularProgressIndicator(
             modifier = Modifier.then(
