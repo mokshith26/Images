@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Images</string>
+    <string name="title">Title: %1$s</string>
+    <string name="description">Description: %1$s</string>
+    <string name="author">Author: %1$s</string>
+    <string name="published">Published: %1$s</string>
+    <string name="share_the_image_with_data">Share the image with data</string>
+    <string name="dimensions">Dimensions: </string>
+</resources>
